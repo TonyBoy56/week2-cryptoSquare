@@ -1,7 +1,8 @@
-let closestSquare=(num)=>Math.ceil( Math.sqrt(num));
+let closestSquare=num=>Math.ceil( Math.sqrt(num));
 
-let letterCount =(str)=>{
+let letterCount =str=>{
   let letterArr = [];
+  let siftedArr = []
   for(let i=65; i<=90; i++){
     letterArr.push(String.fromCharCode(i));
   }
@@ -13,7 +14,30 @@ let letterCount =(str)=>{
   strArr.forEach(letter=>{
     if(letterArr.includes(letter)){
       counter++;
+      siftedArr.push(letter)
     }
   })
-    return counter
+    return [counter, siftedArr]
+}
+
+let makeLetterMatrix = str => {
+  let [numLetters, letterArr] = letterCount(str)
+  let numColumns = closestSquare(numLetters);
+  let numRows = Math.ceil(numLetters/numColumns)
+  let letterMatrix = []
+ 
+  let k = 0
+  for(let i=0; i<numRows; i++ ){
+     let innerArr = []
+    for(let j =0 ;j<numColumns;j++){
+      if(letterArr[k]){
+      innerArr.push(letterArr[k])
+      }else{
+        innerArr.push('')
+      }
+      k++
+    }
+    letterMatrix.push(innerArr)
+  }
+  return letterMatrix
 }
