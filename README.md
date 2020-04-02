@@ -12,10 +12,10 @@ _This is a website that will provide a programming language for the user based o
 
 | Behavior | Input | Output |
 |----------|:-----:|--------|
-| | | |
-| user can enter a num from 1-10 and get back the right number | 6 | VI |
-| user can enter a num from 11-100 and get back the right number | 66| LXVI |
-| user can enter a num from 101-1000 and get back the right number | 1066| MLXVI |
+| user inputs sentence and gets back # of letters | hello darlin | 11 |
+| user inputs sentence and gets back # of columns | hello darlin | columns: 4 | 
+| user inputs sentence and gets back # of columns & rows | hello darlin | columns: 4, rows: 3| 
+| user inputs sentence and gets coded message | hello darling |  |
 
 ## Setup/Installation Requirements
 
