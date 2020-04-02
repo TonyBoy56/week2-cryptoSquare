@@ -1,5 +1,12 @@
 let closestSquare=num=>Math.ceil( Math.sqrt(num));
 
+let insertSpace=(str, number)=> {
+    var arr = [];
+    for(let i = 0; i < str.length; i += number) {
+       arr.push(str.substr(i, number))
+    }
+    return arr.join(' ')
+};
 let letterCount =str=>{
   let letterArr = [];
   let siftedArr = []
@@ -25,7 +32,6 @@ let makeLetterMatrix = str => {
   let numColumns = closestSquare(numLetters);
   let numRows = Math.ceil(numLetters/numColumns)
   let letterMatrix = []
- 
   let k = 0
   for(let i=0; i<numRows; i++ ){
      let innerArr = []
@@ -39,5 +45,25 @@ let makeLetterMatrix = str => {
     }
     letterMatrix.push(innerArr)
   }
+
+
   return letterMatrix
 }
+
+let encrypt = str =>{
+  let matrix = makeLetterMatrix(str);
+  let numRow = matrix.length
+  let numColumns = matrix[0].length
+  let message = []
+ for(let i = 0; i<numColumns; i++){
+    for(let j = 0; j<numRow; j++){
+     message.push(matrix[j][i])
+    }
+  }
+  let messageStr = message.join('')
+  messageStr = insertSpace(messageStr, 5)
+  return messageStr.length
+}
+test = `don't compare yourself to others, compare yourself to the person you were yesterday`
+console.log(test.length)
+encrypt(test)
