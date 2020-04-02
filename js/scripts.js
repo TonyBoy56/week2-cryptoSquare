@@ -16,6 +16,9 @@ let letterCount =str=>{
   for(let i=97; i<=122; i++){
     letterArr.push(String.fromCharCode(i));
   }
+  for(let i=0; i<=9; i++){
+    letterArr.push(i );
+  }
   let counter = 0;
   var strArr = str.split('')
   strArr.forEach(letter=>{
@@ -62,8 +65,14 @@ let encrypt = str =>{
   }
   let messageStr = message.join('')
   messageStr = insertSpace(messageStr, 5)
-  return messageStr.length
+  return messageStr
 }
-test = `don't compare yourself to others, compare yourself to the person you were yesterday`
-console.log(test.length)
-encrypt(test)
+
+$(document).ready(()=>{
+ $("#formOne").submit(e=>{
+   e.preventDefault();
+   let input = $('#userInput').val();
+   let output = encrypt(input);
+   $('#result').text(output)
+ })
+})
